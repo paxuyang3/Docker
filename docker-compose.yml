@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    # 현재 폴더의 Dockerfile을 기반으로 직접 빌드
+    build: .
+    container_name: courses_server
+    # 외부 80번 포트를 컨테이너 내부 8000번으로 연결
+    ports:
+      - "80:8000"
+    # EC2 재부팅 또는 세션 재시작 시 자동으로 컨테이너 부팅
+    restart: always
